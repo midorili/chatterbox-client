@@ -12,7 +12,7 @@ var MessagesView = {
 
   render: function() {
     // TODO: Render _all_ the messages.
-
+    $('#chats').empty();
     // for loop to access all messages in storage
     for (var i = 0; i < Messages.storage.length; i++) {
       MessagesView.renderMessage(Messages.storage[i]);
@@ -23,19 +23,24 @@ var MessagesView = {
 
   renderMessage: function(message) {
     // TODO: Render a single message.
-    console.log(message);
-    console.log(message.text);
+
     var newMessage = MessageView.render({
       username: message.username,
       text: message.text
     });
-    console.log(newMessage);
+
     $('#chats').append(newMessage);
   },
 
   handleClick: function(event) {
     // TODO: handle a user clicking on a message
     // (this should add the sender to the user's friend list).
+  },
+
+  handleRefresh: function(event) {
+    $('#refresh').on('click', function () {
+      App.fetch();
+    });
   }
 
 };
