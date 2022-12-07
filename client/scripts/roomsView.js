@@ -25,6 +25,9 @@ var RoomsView = {
 
   handleClick: function(event) {
     // TODO: Handle the user clicking the "Add Room" button.
+    $('#rooms button').on('click', function () {
+      Rooms.addRoom();
+    });
   }
 
 };

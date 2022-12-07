@@ -16,6 +16,10 @@ var MessagesView = {
     // for loop to access all messages in storage
     for (var i = 0; i < Messages.storage.length; i++) {
       MessagesView.renderMessage(Messages.storage[i]);
+      console.log(Messages.storage[i]['roomname']);
+      if (!Rooms.storage.includes(Messages.storage[i]['roomname'])) {
+        Rooms.storage.push(Messages.storage[i]['roomname']);
+      }
     }
     // call renderMessage to render each individual message
 
