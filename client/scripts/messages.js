@@ -9,14 +9,13 @@ var Messages = {
   // TODO: Define methods which allow you to retrieve from,
   // add to, and generally interact with the messages.
 
-  generateNewMessage: function() {
+  generateNewMessage: function(roomName = 'lobby') {
     var message = document.getElementById('message').value;
-    console.log('message', message);
 
     var messageObject = {
       username: App.username,
       text: message,
-      roomname: 'Lobby'
+      roomname: roomName
     };
 
     Parse.create(messageObject);

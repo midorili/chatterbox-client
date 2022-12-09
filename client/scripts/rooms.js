@@ -10,10 +10,14 @@ var Rooms = {
   // TODO: Define methods which allow you to add rooms, update the list,
   // mark a room as selected, etc.
   addRoom: function(roomName) {
-    var newRoom = $('#rooms select').append($('<option>', {
-      value: roomName,
-      text: roomName
-    }));
+
+    var messageObject = {
+      username: App.username,
+      text: '',
+      roomname: roomName
+    };
+
+    Parse.create(messageObject);
   }
 
 };

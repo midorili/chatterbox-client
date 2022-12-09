@@ -27,7 +27,7 @@ var App = {
   fetch: function(callback = ()=>{}) {
     Parse.readAll((data) => {
       // examine the response from the server request:
-
+      //console.log(data);
       Messages.storage = data;
       MessagesView.render();
       // TODO: Use the data to update Messages and Rooms
