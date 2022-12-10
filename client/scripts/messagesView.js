@@ -28,11 +28,17 @@ var MessagesView = {
   renderMessage: function(message) {
     // TODO: Render a single message.
 
-    var newMessage = MessageView.render({
-      username: message.username,
-      text: message.text
-    });
-
+    if (Friends.isFriend(message.username)) {
+      var newMessage = MessageView.renderFriend({
+        username: message.username,
+        text: message.text
+      });
+    } else {
+      var newMessage = MessageView.render({
+        username: message.username,
+        text: message.text
+      });
+    }
     $('#chats').append(newMessage);
   },
 

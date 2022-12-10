@@ -29,7 +29,6 @@ var RoomsView = {
 
   renderRoom: function(roomname) {
     // TODO: Render out a single room.
-    // $('#rooms select').hide();
     $('#rooms select').append($('<option></option>').attr('roomname', roomname).text(roomname));
   },
 
@@ -37,8 +36,6 @@ var RoomsView = {
     if (room === 'New Room') {
       $('<input>', {
         id: 'newRoom',
-        // type: 'newRoom',
-        // name: 'newRoom',
       }).appendTo('#rooms');
     } else {
       $('#chats').empty();
@@ -62,7 +59,8 @@ var RoomsView = {
     // TODO: Handle the user clicking the "Add Room" button.
     $('#rooms button').on('click', function () {
       var roomText = document.getElementById('newRoom').value;
-      Rooms.addRoom(roomText);
+      Rooms.add(roomText);
+
       //Messages.generateNewMessage();
     });
   }

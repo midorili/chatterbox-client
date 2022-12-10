@@ -9,7 +9,7 @@ var Rooms = {
 
   // TODO: Define methods which allow you to add rooms, update the list,
   // mark a room as selected, etc.
-  addRoom: function(roomName) {
+  add: function(roomName) {
 
     var messageObject = {
       username: App.username,
@@ -18,6 +18,10 @@ var Rooms = {
     };
 
     Parse.create(messageObject);
+
+    setTimeout(function() { App.fetch(); }, 5000);
+    setTimeout(function() { RoomsView.render(); }, 5000);
+
   }
 
 };

@@ -15,10 +15,13 @@ var App = {
     RoomsView.initialize();
     MessagesView.initialize();
     MessagesView.handleRefresh();
+    Friends.initialize();
 
     // Fetch initial batch of messages
     App.startSpinner();
     App.fetch(App.stopSpinner());
+    //apply to chats div
+    Friends.handleClick();
 
     // TODO: Make sure the app loads data from the API
     // continually, instead of just once at the start.
